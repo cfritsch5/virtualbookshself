@@ -35,6 +35,8 @@ recreate the bookshelf experience.
 
 ![wireframes](bookshelf.png)
 
+![wireframes](ShowBook.png)
+
 ![wireframes](BookDetailView.png)
 
 ![wireframes](addBookView.png)
@@ -79,13 +81,15 @@ This project will be implemented with the following technologies:
       dimensions: width, height, depth
 
 **Day 3 Wednesday, 7/9 **
+
 - front end React Native
 - [ ] get api calls working
 - [ ] bookshelf component
+- [ ] add books component
 
 **Day 4 Thursday, 7/10 **
 
-- [ ] add books component
+- [ ] show book component
 - [ ] manage books component
 
 **Day 5 Friday, 7/11 **
@@ -100,8 +104,8 @@ This project will be implemented with the following technologies:
 **Day 7 Sunday, 7/13 **
 
 - last minute debugging & final run of polishing
-- flex room in case of issues
+- flex day in case of issues
 
-**Day 8 Sunday, 7/14 **
+**Day 8 Monday, 7/14 **
 
 - [ ] Project complete & turned in
