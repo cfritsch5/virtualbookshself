@@ -1,4 +1,4 @@
-#VirtualBookshelf
+# VirtualBookshelf
 
 ## Background
 
@@ -44,6 +44,7 @@ recreate the bookshelf experience.
 ### Work done over the weekend
 
 - Start react native tutorials
+- make readme
 - research  
 
 ### Architecture and Technologies
@@ -56,7 +57,7 @@ This project will be implemented with the following technologies:
   - auth.user — Get id of user who authorized OAuth.
   - reviews.list — Get the books on a members shelf.
     - includes image urls, but not images themselves
-- Amazon API
+- Bonus - Amazon API
   - item.search
   - itemlookup.images
   - itemlookup.ItemDimensions
