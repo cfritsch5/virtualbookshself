@@ -67,7 +67,7 @@ This project will be implemented with the following technologies:
 
 **Day 1 Monday, 7/7 **:
 - [x] get GoodReads api key
-- [ ] get Amazon api key
+- [x] get Amazon api key
 - [ ] finalize schedule
 - [ ] complete React Native tutorials
 
