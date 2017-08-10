@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 
+import Login from './login';
+
 export default class vb_frontend extends Component {
   render() {
     return (
@@ -26,6 +28,7 @@ export default class vb_frontend extends Component {
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+        <Login />
       </View>
     );
   }
