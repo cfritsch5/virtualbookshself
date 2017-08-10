@@ -1,0 +1,2 @@
+class Spine < ApplicationRecord
+end
