@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 
-import Login from './login';
+import Login from './app/login';
 
 export default class vb_frontend extends Component {
   render() {
