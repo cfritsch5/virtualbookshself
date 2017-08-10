@@ -1,8 +1,8 @@
-class CreateBookshelves < ActiveRecord::Migration[5.0]
+class CreateBookshelf_Items < ActiveRecord::Migration[5.0]
   def change
-    create_table :bookshelves do |t|
-      t.integer :user_id
-      t.integer :book_id
+    create_table :bookshelf_items do |t|
+      t.integer :user_id, null: false
+      t.integer :book_id, null: false
       t.integer :cover_id
       t.integer :spine_id
       t.integer :back_id
@@ -10,6 +10,7 @@ class CreateBookshelves < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    add_index :bookshelves, :user_id 
+    add_index :bookshelves, :user_id
+    add_index :bookshelves, :book_id
   end
 end

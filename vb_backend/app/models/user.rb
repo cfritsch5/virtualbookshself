@@ -1,16 +1,23 @@
 class User < ApplicationRecord
   validates :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
-  validates :email, unique: true
+  validates :email, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
 
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness, on: :create
 
+  has_many :bookshelf_items
   has_many :books,
-  through :bookshelves
+  through: :bookshelf_items
+
 
   attr_reader :password
+
+  def add_book(book)
+    Bookshelf_Item.create!(user_id: self.id, book_id: book.id,
+    cover_id: book.covers[0].id, spine_id: book.spines[0].id, back_id: book.backs[0].id)
+  end
 
   def password= password
 		self.password_digest = BCrypt::Password.create(password)
