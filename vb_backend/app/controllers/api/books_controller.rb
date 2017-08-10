@@ -4,6 +4,8 @@ class Api::BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
+      user = current_user
+      user.add_book(@book)
       render "api/books/show"
     else
       render json: @book.errors.full_messages, status: 422

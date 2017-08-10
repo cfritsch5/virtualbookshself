@@ -3,5 +3,4 @@ class Cover < ApplicationRecord
 
   belongs_to :book
   has_many :bookshelf_items
-
 end

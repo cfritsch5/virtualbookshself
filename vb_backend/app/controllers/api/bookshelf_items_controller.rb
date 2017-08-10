@@ -1,9 +1,18 @@
 class Api::Bookshelf_Items_Controller < ApplicationController
+  def index
+    user = current_user
+    @bookshelf_items = user.bookshelf_items
+    @bookshelf = @bookshelf_items.map do |ar_book| #active record book object
+      Book.find(book.book_id)
+    end
+  end
 
+  def show
+  end
   def create
     @user = current_user
 
-    @books = User.books
+    @user.add_book(params[])
   end
 
   def update
@@ -11,4 +20,6 @@ class Api::Bookshelf_Items_Controller < ApplicationController
 
     Bookshelf_Item.find_by(user_id: @user.id, book_id: params[:book_id])
   end
+
+
 end
