@@ -2,8 +2,7 @@ class Api::UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		@user.lesson_id = 3
-		@user.unit_id = 2
+
 
 		if @user.save
 			login(@user)
