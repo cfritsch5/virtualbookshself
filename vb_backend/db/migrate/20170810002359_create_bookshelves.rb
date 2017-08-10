@@ -9,5 +9,7 @@ class CreateBookshelves < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    add_index :bookshelves, :user_id 
   end
 end
