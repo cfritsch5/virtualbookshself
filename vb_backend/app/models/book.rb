@@ -6,7 +6,4 @@ class Book < ApplicationRecord
   has_many :backs
 
   has_many :bookshelf_items
-
-  has_many :users,
-  through: :bookshelf_items
 end
