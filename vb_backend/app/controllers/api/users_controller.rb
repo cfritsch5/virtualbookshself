@@ -12,32 +12,9 @@ class Api::UsersController < ApplicationController
 		end
 	end
 
-	def update
-			@user = current_user
-			lesson_id = params[:user][:lesson_id].to_i
-
-			if @user.lesson_id == lesson_id
-
-				@user.lesson_id = lesson_id + 1
-
-				if Lesson.find(lesson_id).unit_id != Lesson.find( @user.lesson_id ).unit_id
-					@user.unit_id = @user.unit_id + 1
-				end
-
-				if @user.save
-					render "api/users/update"
-				else
-					render json: @user.errors.full_messages, status: 422
-				end
-
-			else
-				render "api/users/update"
-			end
-		end
-
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :password, :lesson_id)
+		params.require(:user).permit(:username, :password)
 	end
 end
