@@ -36,8 +36,8 @@ export default class vb_frontend extends Component {
   render() {
     return (
       <Image
-        style={{width: 50, height: 50, borderColor: 'gray', borderWidth: 1}}
-        source={{uri: 'http://images.gr-assets.com/authors/1262468106p5/18575.jpg'}}
+        style={{width: 100, height: 100, borderColor: 'gray', borderWidth: 1}}
+        source={{uri: 'https://images.gr-assets.com/books/1412069453m/23288957.jpg'}}
         />
     );
     // <Image
