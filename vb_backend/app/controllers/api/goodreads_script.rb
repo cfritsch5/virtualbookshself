@@ -23,9 +23,9 @@ user_id = doc.at(:user).attributes['id']
 
 
 shelf_response = accesstoken.get("/shelf/list.xml?user_id=#{user_id}&key=#{apikey}")
-books = accesstoken.get("/review/list/60228944.xml?user_id=#{user_id}&key=#{apikey}&sort=rating")
+books = accesstoken.get("/review/list/60228946.xml?user_id=#{user_id}&key=#{apikey}&sort=rating")
 
-puts shelf_response.body
+# puts shelf_response.body
 puts books.body
 
 doc1 = Nokogiri.XML(books.body)
