@@ -19,15 +19,17 @@ accesstoken = OAuth::AccessToken.new(consumer, access_token.token, access_token.
 response = accesstoken.get('/api/auth_user')
 
 doc = Nokogiri.XML(response.body)
+# puts doc
 user_id = doc.at(:user).attributes['id']
+# puts user_id
 
 
 shelf_response = accesstoken.get("/shelf/list.xml?user_id=#{user_id}&key=#{apikey}")
-books = accesstoken.get("/review/list/60228946.xml?user_id=#{user_id}&key=#{apikey}&sort=rating")
-
-# puts shelf_response.body
+books = accesstoken.get("/review/list.xml?user_id=#{user_id}&key=#{apikey}&sort=rating")
+#
+puts shelf_response.body
 puts books.body
 
 doc1 = Nokogiri.XML(books.body)
 isbn = doc1.at(:isbn).content
-puts isbn
+# puts isbn
