@@ -3,6 +3,10 @@
  * https://github.com/facebook/react-native
  * @flow
  */
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers, compose} from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
 
 import React, { Component } from 'react';
 import {
@@ -12,7 +16,7 @@ import {
   View
 } from 'react-native';
 
-import Login from './app/login';
+import Login from './login';
 
 export default class vb_frontend extends Component {
   render() {
