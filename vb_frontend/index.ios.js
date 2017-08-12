@@ -10,7 +10,9 @@ import {
   StyleSheet,
   Text,
   Image,
-  View
+  View,
+  Fetch,
+  Linking
 } from 'react-native';
 import store from './app/store';
 import App from './app/app';
@@ -33,13 +35,18 @@ export default class vb_frontend extends Component {
   //     </View>
   //   );
   // }
+  handlelink(){
+    Linking.openURL("http://www.goodreads.com/oauth/authorize?oauth_token=5R25eodmWQ3RWOvl15AyNA").catch(err => console.error('An error occurred', err));
+  }
   render() {
+    this.handlelink();
     return (
-      <Image
-        style={{width: 100, height: 100, borderColor: 'gray', borderWidth: 1}}
-        source={{uri: 'https://images.gr-assets.com/books/1412069453m/23288957.jpg'}}
-        />
+      <Text>not working</Text>
     );
+    // <Image
+    //   style={{width: 100, height: 100, borderColor: 'gray', borderWidth: 1}}
+    //   source={{uri: 'https://images.gr-assets.com/books/1412069453m/23288957.jpg'}}
+    //   />
     // <Image
     //   style={{width: 50, height: 50}}
     //   source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
