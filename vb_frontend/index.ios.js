@@ -12,12 +12,21 @@ import {
   Image,
   View,
   Fetch,
-  Linking
+  Linking,
+  Button
 } from 'react-native';
 import store from './app/store';
 import App from './app/app';
 
 export default class vb_frontend extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      response: {title: ""}
+    };
+
+    this.sendfetch = this.sendfetch.bind(this);
+  }
   // render() {
   //   return (
   //     <View style={styles.container}>
@@ -38,10 +47,50 @@ export default class vb_frontend extends Component {
   handlelink(){
     Linking.openURL("http://www.goodreads.com/oauth/authorize?oauth_token=5R25eodmWQ3RWOvl15AyNA").catch(err => console.error('An error occurred', err));
   }
+
+  sendfetch(){
+    var _response;
+    let book = fetch('http://localhost:3000/tests')
+    .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({response: responseJson.book});
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+//     fetch('http://localhost:3000/tests', {
+//   method: 'GET',
+//   headers: {
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify({
+//     book: 'yourValue',
+//     secondParam: 'yourOtherValue',
+//   })
+// });
+  }
+
   render() {
-    this.handlelink();
+    let responsetitle = this.state.response.title || "none";
     return (
-      <Text>not working</Text>
+      <View>
+        <Button
+          onPress={this.handlelink}
+          title="goodreads"
+          color="#841584"
+          accessibilityLabel="authorize this app to access your goodreads account"
+          />
+        <Button
+          onPress={this.sendfetch}
+          title="fetch"
+          color="#841584"
+          accessibilityLabel="authorize this app to access your goodreads account"
+          />
+        <Text>Title: {responsetitle}</Text>
+      </View>
+
     );
     // <Image
     //   style={{width: 100, height: 100, borderColor: 'gray', borderWidth: 1}}
