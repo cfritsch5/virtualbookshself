@@ -1,1 +1,1 @@
-json.book @book
+json.url @authurl

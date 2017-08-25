@@ -3,7 +3,7 @@ require 'launchy'
 require 'nokogiri'
 
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
 
   private
@@ -63,6 +63,6 @@ class ApplicationController < ActionController::Base
     doc1 = Nokogiri.XML(books.body)
     isbn = doc1.at(:isbn).content
     puts isbn
-  end 
+  end
 
 end
