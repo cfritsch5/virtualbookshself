@@ -70,9 +70,14 @@ class SessionForm extends React.Component {
   }
 
   login(e){
-    e.preventDefault();
-    const user = this.state;
-    this.props.login({user});
+    if(this.state.signup){
+      this.setState({signup: false});
+      this.props.error([]);
+    } else {
+      e.preventDefault();
+      const user = this.state;
+      this.props.login({user});
+    }
   }
 
   signup(e){
@@ -86,6 +91,7 @@ class SessionForm extends React.Component {
         this.props.error(["Passwords do not match"]);
       }
     } else {
+      this.props.error([]);
       this.setState({signup: true});
     }
   }
