@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers, compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
-import reducer from './root_reducer';
+import RootReducer from './root_reducer';
 
 function configureStore(initialState) {
   const enhancer = compose(
@@ -10,7 +10,7 @@ function configureStore(initialState) {
       logger
     )
   );
-  return createStore(reducer, initialState, enhancer);
+  return createStore(RootReducer, initialState, enhancer);
 }
 
-export default configureStore;
+export default configureStore();
