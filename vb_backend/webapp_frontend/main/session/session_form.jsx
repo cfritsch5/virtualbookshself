@@ -5,13 +5,15 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      signup: false,
       username: '',
-      password: ''
+      password: '',
+      confirmpassword: ''
     };
-    // if (this.props.currentUser) <Redirect to="/" />;
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.signInAsGuest = this.signInAsGuest.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.login = this.login.bind(this);
+    this.signup = this.signup.bind(this);
   }
 
   update(field) {
@@ -20,28 +22,18 @@ class SessionForm extends React.Component {
     });
   }
 
-  signInAsGuest (e) {
-  e.preventDefault();
-  const user = {
-    username: "Guest",
-    password: "password"
-  };
-  this.setState({user});
-  setTimeout(this.props.processForm({user}),500);
-}
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = this.state;
-    this.props.processForm({user});
-  }
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log(e.currentTarget.value);
+  //   const user = this.state;
+  //   this.props.processForm({user});
+  // }
 
   navLink() {
     let login = "Login", signup = "Sign Up";
     if (this.props.formType === 'login') {
       return (<div className="signup-v-login">
         <input type="submit" value={login} />
-        <input className="signup-v-login" onClick={this.signInAsGuest} type="submit" value="guest"/>
         <Link to="/signup">{signup} instead</Link>
       </div>
     );
@@ -52,6 +44,56 @@ class SessionForm extends React.Component {
        </div>
      );
     }
+  }
+
+  signupform(){
+    return(
+      <div>
+        <div className="login-form-item">
+            <input type="text"
+              value={this.state.confirmpassword}
+              placeholder='confirm password'
+              onChange={this.update('confirmpassword')}
+              className="login-input"
+            />
+        </div>
+        <div className="login-form-item">
+            <input type="text"
+              value={this.state.email}
+              placeholder='email'
+              onChange={this.update('email')}
+              className="login-input"
+            />
+        </div>
+      </div>
+    );
+  }
+
+  login(e){
+    e.preventDefault();
+    const user = this.state;
+    this.props.login({user});
+  }
+
+  signup(e){
+    e.preventDefault();
+    if (this.state.signup) {
+      const user = this.state;
+      if (this.state.password === this.state.confirmpassword){
+        this.props.signup({user});
+      } else {
+        console.log("error!!!!!!!!!!!");
+        this.props.error(["Passwords do not match"]);
+      }
+    } else {
+      this.setState({signup: true});
+    }
+  }
+
+  logout(e){
+    e.preventDefault();
+    const user = this.state;
+    this.props.logout({user});
   }
 
   renderErrors() {
@@ -67,6 +109,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let signup;
+    if(this.state.signup) signup = this.signupform();
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
@@ -87,7 +131,9 @@ class SessionForm extends React.Component {
                 className="login-input"
               />
             </div>
-            {this.navLink()}
+            {signup}
+            <button onClick={this.login} >login</button>
+            <button onClick={this.signup}>signup</button>
         </form>
       </div>
     );

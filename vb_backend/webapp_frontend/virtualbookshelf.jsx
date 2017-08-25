@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store} />, root);
 
   // Testing __________________
-  // window.store = store;
+  window.store = store;
   // window.UnitsUtil = UnitsUtil;
   // window.UnitActions = UnitActions;
   // window.LessonUtil = LessonUtil;

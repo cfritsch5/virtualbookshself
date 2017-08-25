@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import SkillTreeContainer from '../skilltree/skill_tree';
-import LoginContainer from '../auth/login_box_container';
 import { Route, Redirect, withRouter } from 'react-router-dom';
+import BookShelfContainer from '../bookshelf/bookshelf_container';
+import SessionFormContainer from './session_form_container';
 
-const Home = ({ currentUser, logout }) => (
-  currentUser ? <Redirect to="/bookshelf" /> : <Redirect to="/login"/>
-);
+const Home = ({ currentUser, logout }) => {
+  if (currentUser) {
+  return  <BookShelfContainer/>;
+  } else {
+    return <SessionFormContainer/>;
+  }
+};
 
-export default Home;
+export default withRouter(Home);

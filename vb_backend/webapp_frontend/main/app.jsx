@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import HomeContainer from './session/home_container';
 import SessionFormContainer from'./session/session_form_container';
+import BookShelfContainer from './bookshelf/bookshelf_container';
 const App = () => (
   <div>
 
@@ -22,7 +23,7 @@ const App = () => (
     </header>
 
     <Switch>
-      <Route exact path="/" component={HomeContainer} />
+      <Route path="/" component={HomeContainer} />
       <Route exact path="/login" component={SessionFormContainer} />
     </Switch>
   </div>
