@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import BookShelf from './bookshelf';
 import {logout } from '../session/session_actions';
+import {fetchbooks} from './book_actions';
 
 const mapStateToProps = ({ session }) => ({
   currentUser: session.currentUser
@@ -9,11 +10,12 @@ const mapStateToProps = ({ session }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return ({
+    fetchbooks: () => dispatch(fetchbooks()),
     logout: user => dispatch(logout(user))
   });
 };
 
-export default withRouter(connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BookShelf));
+)(BookShelf);

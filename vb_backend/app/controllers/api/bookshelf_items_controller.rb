@@ -1,8 +1,8 @@
-class Api::Bookshelf_Items_Controller < ApplicationController
+class Api::BookshelfItemsController < ApplicationController
   def index
     user = current_user
     @bookshelf_items = user.bookshelf_items
-    @bookshelf = @bookshelf_items.map do |ar_book| #active record book object
+    @bookshelf = @bookshelf_items.map do |book| #active record book object
       Book.find(book.book_id)
     end
   end

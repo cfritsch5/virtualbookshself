@@ -4,9 +4,9 @@ import Root from './main/root';
 import configureStore from './main/store';
 
 // Testing __________________
-// import * as UnitsUtil from './util/units_util';
-// import * as UnitActions from './actions/units_actions';
-// import * as LessonActions from './actions/lesson_actions';
+// import * as SessionUtil from './session_api_util';
+import * as BookUtil from './main/bookshelf/books_api_util';
+import * as BookActions from './main/bookshelf/book_actions';
 // import * as LessonUtil from "./util/lessons_util";
 // Testing __________________
 
@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Testing __________________
   window.store = store;
-  // window.UnitsUtil = UnitsUtil;
-  // window.UnitActions = UnitActions;
+  window.BookUtil = BookUtil;
+  window.BookActions = BookActions;
   // window.LessonUtil = LessonUtil;
   // window.LessonActions = LessonActions;
   // Testing __________________

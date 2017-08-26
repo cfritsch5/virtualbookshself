@@ -11,4 +11,4 @@ const Home = ({ currentUser, logout }) => {
   }
 };
 
-export default withRouter(Home);
+export default Home;
