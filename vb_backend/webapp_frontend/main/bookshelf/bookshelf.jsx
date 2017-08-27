@@ -1,5 +1,8 @@
 import React from 'react';
 import Book from './book';
+import BookContainer from './book_container';
+import Draggable from 'react-draggable';
+
 class BookShelf extends React.Component {
   constructor(props){
     super(props);
@@ -8,6 +11,7 @@ class BookShelf extends React.Component {
     };
     this.logout = this.logout.bind(this);
     this.addBook = this.addBook.bind(this);
+    this.gofetchbooks = this.gofetchbooks.bind(this);
   }
 
   logout(e){
@@ -22,18 +26,27 @@ class BookShelf extends React.Component {
     this.setState({books: books.concat([<Book key={id}/>])});
   }
 
-  ComponentWillMount(){
+  componentWillMount(){
     let books = [];
-    let id = books.length;
-    this.props.books.forEach((book)=>{
-      books.push(<Book key={id} data={book}/>);
-      id = id + 1;
+    this.props.fetchbooks().then((b)=>{
+      let id = 0;
+      b.books.forEach((book)=>{
+        books.push(
+            <Book key={id} book={book}/>
+        );
+        id = id + 1;
+      });
+      this.setState({books: books});
     });
+  }
+
+  gofetchbooks(e){
+    e.preventDefault();
   }
 
   render() {
     let user = this.props.currentUser;
-    console.log(user);
+    // console.log(user);
     let bok = this.state.books;
     return (
       <div>

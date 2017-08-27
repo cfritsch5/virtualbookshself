@@ -7,6 +7,6 @@ export const receiveBooks = books => ({
 
 export const fetchbooks = () => dispatch => (
   BookUtil.fillShelf().then(books => (
-    dispatch(receiveBooks)
+    dispatch(receiveBooks(books))
   ))
 );

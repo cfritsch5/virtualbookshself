@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import Book from './book';
-const mapStateToProps = ({key}) => ({
+const mapStateToProps = ({book}) => ({
+  book: book
 });
 
 const mapDispatchToProps = (dispatch) => {

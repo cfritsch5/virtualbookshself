@@ -4,8 +4,9 @@ import BookShelf from './bookshelf';
 import {logout } from '../session/session_actions';
 import {fetchbooks} from './book_actions';
 
-const mapStateToProps = ({ session }) => ({
-  currentUser: session.currentUser
+const mapStateToProps = ({ session, books }) => ({
+  currentUser: session.currentUser,
+  books: books
 });
 
 const mapDispatchToProps = (dispatch) => {
