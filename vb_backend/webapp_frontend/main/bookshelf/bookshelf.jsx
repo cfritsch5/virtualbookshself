@@ -2,6 +2,7 @@ import React from 'react';
 import Book from './book';
 import BookContainer from './book_container';
 import Draggable from 'react-draggable';
+import ReactDOM from 'react-dom';
 
 class BookShelf extends React.Component {
   constructor(props){
@@ -32,7 +33,11 @@ class BookShelf extends React.Component {
       let id = 0;
       b.books.forEach((book)=>{
         books.push(
-            <Book key={id} book={book}/>
+          // <Draggable id={`book_${book.id}`} key={id}>
+            // <div>
+              <Book book={book} key={id}/>
+            // </div>
+          // </Draggable>
         );
         id = id + 1;
       });
@@ -44,15 +49,19 @@ class BookShelf extends React.Component {
     e.preventDefault();
   }
 
+  reftest(e){
+    ReactDOM.findDOMNode(this.ref.book_1);
+  }
+
   render() {
     let user = this.props.currentUser;
     // console.log(user);
-    let bok = this.state.books;
+    let books = this.state.books;
     return (
       <div>
         <div className="header">
           <h1>BookShelf</h1>
-          {bok}
+          {books}
           <button onClick={this.logout}>logout</button>
           <button onClick={this.addBook}>Add Book</button>
         </div>
