@@ -1,4 +1,9 @@
 secret
-#goodreads api 
+#goodreads api
 #key: Cm0xXvDTsloaBDrJaovEg
 #secret: RKDItd2Aim27M2XGQkwW5cYEzC4XsTT0YHnZWJ4doxs
+
+node_modules
+bundle
+bundle.js
+bundle.map.js

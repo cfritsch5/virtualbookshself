@@ -6,4 +6,8 @@ class Book < ApplicationRecord
   has_many :backs
 
   has_many :bookshelf_items
+
+  def author
+    @author = self.author_lastname + ", " + self.author_firstname
+  end 
 end
