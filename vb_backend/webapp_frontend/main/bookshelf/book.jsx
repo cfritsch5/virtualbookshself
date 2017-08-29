@@ -84,7 +84,6 @@ class Book extends React.Component {
     // let width = 100;
     return (
       <div>
-        <h6>{this.props.book.title}</h6>
           <Draggable ref={`book_${this.props.book.id}`} >
           <canvas ref="myCanvas" onMouseMove={this.draw}  width={this.width} height={this.height}></canvas>
           </Draggable>
