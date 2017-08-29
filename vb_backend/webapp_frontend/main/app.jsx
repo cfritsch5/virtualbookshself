@@ -20,14 +20,14 @@ const App = () => (
           <h1>Virtual Book Shelf</h1>
         </div>
       </Link>
-    </header>
+      
 
-    <Switch>
-      <Route path="/" component={HomeContainer} />
-      <Route exact path="/login" component={SessionFormContainer} />
-    </Switch>
+      <Switch>
+        <Route path="/" component={HomeContainer} />
+        <Route exact path="/login" component={SessionFormContainer} />
+      </Switch>
+    </header>
   </div>
 );
-
 
 export default App;

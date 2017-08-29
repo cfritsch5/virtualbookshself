@@ -9,7 +9,7 @@ class Book extends React.Component {
     this.printXY = this.printXY.bind(this);
     this.draw = this.draw.bind(this);
     this.height = 325;
-    this.width = 150;
+    this.width = 200;
     this.position = {x:0,y:0};
   }
 
@@ -77,15 +77,10 @@ class Book extends React.Component {
   }
 
   render(){
-    // console.log(this.props);
-    // console.log(`render book ${this.key} at`, Date.now());
-    // <img src={"assets/TheHobbit_cover.jpg"} height="100" width="100"/>
-    // let height = 500;
-    // let width = 100;
     return (
       <div>
           <Draggable ref={`book_${this.props.book.id}`} >
-          <canvas ref="myCanvas" onMouseMove={this.draw}  width={this.width} height={this.height}></canvas>
+            <canvas ref="myCanvas" onMouseMove={this.draw}  width={this.width} height={this.height}></canvas>
           </Draggable>
       </div>
     );

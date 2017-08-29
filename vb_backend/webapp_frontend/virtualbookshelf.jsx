@@ -12,7 +12,7 @@ import * as BookActions from './main/bookshelf/book_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // console.log("wide",window.innerWidth); //get window width 
+  // console.log("wide",window.innerWidth); //get window width
   let store;
   if (window.currentUser) {
     const preloadedState = { session: { currentUser: window.currentUser } };

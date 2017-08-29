@@ -10,9 +10,10 @@ class BookShelf extends React.Component {
     this.state ={
       books: []
     };
+
     this.logout = this.logout.bind(this);
     this.addBook = this.addBook.bind(this);
-    this.gofetchbooks = this.gofetchbooks.bind(this);
+    // this.gofetchbooks = this.gofetchbooks.bind(this);
   }
 
   logout(e){
@@ -44,14 +45,14 @@ class BookShelf extends React.Component {
       this.setState({books: books});
     });
   }
-
-  gofetchbooks(e){
-    e.preventDefault();
-  }
-
-  reftest(e){
-    ReactDOM.findDOMNode(this.ref.book_1);
-  }
+  //
+  // gofetchbooks(e){
+  //   e.preventDefault();
+  // }
+  //
+  // reftest(e){
+  //   ReactDOM.findDOMNode(this.ref.book_1);
+  // }
 
   render() {
     let user = this.props.currentUser;
